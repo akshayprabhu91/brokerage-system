@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Trade</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="Style/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="Style/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <div align="center" class="container-fluid">
+                <div>
+                    <h2>START TRADING</h2>
+                </div>
+                <div>
+                    What would you like to do? &nbsp;
+                    <h:selectOneMenu value="#{loginAccount.tradeType}">
+                        <f:selectItems value="#{loginAccount.fetchTradeTypes()}"/>
+                        <f:ajax render="@form"/>
+                    </h:selectOneMenu> stocks
+                </div>
+                <div>
+                    Enter the Stock Symbol* 
+                    <h:inputText id="share"
+                                 required="true"
+                                 requiredMessage="**** Name of the Share cannot be empty"
+                                 title="Name of the Share"
+                                 value="#{loginAccount.share}">
+                    </h:inputText>
+                </div>
+                <div>
+                    Number of Shares:* 
+                    <h:inputText id="numOfShares"
+                                 required="true"
+                                 requiredMessage="**** Number of Stocks cannot be empty"
+                                 title="Number Of Stocks"
+                                 value="#{loginAccount.numOfShares}">
+                    </h:inputText>
+                </div>
+                <div>
+                    Price:* 
+                    <h:inputText id="price"
+                                 required="true"
+                                 requiredMessage="**** Price cannot be empty"
+                                 title="Price"
+                                 value="#{loginAccount.price}">
+                    </h:inputText>
+                </div>
+                <div>
+                    <h4>Order Type: LIMIT ORDER</h4>
+                </div>
+                <div>
+                    <h:commandButton id="trade" value="START TRADE" action="#{loginAccount.trade()}" style="width: 300px"></h:commandButton>
+                </div>
+                <div>
+                    <h:commandButton id="logOut" value="LOG OUT" action="#{loginAccount.logOut()}" style="width: 300px"></h:commandButton>
+                </div>
+
+                <div>
+                    &nbsp;
+                </div>
+
+                <h:panelGroup rendered="#{loginAccount.tradeType == 'BUY'}">
+                    <h:panelGroup>
+                        <h3>Pending Stocks to be Sold:</h3>
+                    </h:panelGroup>
+                    <h:dataTable value="#{loginAccount.fetchPendingStocksToBeSold()}" var="order" border="1">
+                        <h:column>
+                            <f:facet name="header">SYMBOL</f:facet>
+                                #{order.symbol}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">NUMBER_OF_SHARES</f:facet>
+                                #{order.numberOfShares}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">MINIMUM_SELLING_PRICE</f:facet>
+                                #{order.minSellingPrice}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">SELLER</f:facet>
+                                #{order.seller}
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+
+                <h:panelGroup rendered="#{loginAccount.tradeType == 'SELL'}">
+                    <h:panelGroup>
+                        <h3>Stocks I Possess:</h3>
+                    </h:panelGroup>
+                    <h:dataTable value="#{loginAccount.fetchStocksPossessed()}" var="order" border="1">
+                        <h:column>
+                            <f:facet name="header">SYMBOL</f:facet>
+                                #{order.symbol}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">NAME_OF_STOCK</f:facet>
+                                #{order.nameOfStock}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">TOTAL_SHARES</f:facet>
+                                #{order.numberOfShares}
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+            </div>
+        </h:form>
+    </h:body>
+</html>

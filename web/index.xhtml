@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">   
+
+    <h:head>
+        <title>Online Brokerage System</title>
+        <meta http-equiv="pragma" content="no-cache" />
+        <link href="Style/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+
+    <h:body>
+        <div align="center" class="container-fluid">
+            <h:form>
+                <div>
+                    <h1>Welcome to the Online Brokerage System</h1>
+                </div>
+                <div>
+                    <h:graphicImage value="/Resources/Images/home.jpg" height="250" width="360"/>
+                </div>
+                <div>
+                    <h3>Please select what you want to do:</h3>
+                    <p>
+                        <h:link outcome="newAccount.xhtml">
+                            Create a New Online Account
+                        </h:link>
+                        &nbsp;
+                        <h:link outcome="login.xhtml">
+                            Login
+                        </h:link>
+                        &nbsp;
+                        <h:link outcome="retrieval.xhtml">
+                            Password Retrieval
+                        </h:link>
+                    </p>
+                </div>
+            </h:form>
+        </div>
+    </h:body>
+</html>

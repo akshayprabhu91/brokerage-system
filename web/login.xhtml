@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">   
+
+    <h:head>
+        <title>Create Account</title>
+        <meta http-equiv="pragma" content="no-cache" />
+        <link href="Style/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+
+    <h:body>
+            <h:form>
+                <div align="center" class="container-fluid">
+                    <div>
+                        <h3>Login to your Account</h3>
+                    </div>
+                    <div>
+                        <p>Login ID:*
+                            <h:inputText id="loginID" 
+                                         required="true" 
+                                         requiredMessage="**** Login ID cannot be empty"
+                                         title="Please enter your Login ID"
+                                         value="#{loginAccount.loginID}">
+                            </h:inputText>
+                        </p>
+                    </div>
+                    <div>
+                        <p>Password:*
+                            <h:inputSecret id="password" 
+                                           required="true" 
+                                           requiredMessage="**** Password cannot be empty"
+                                           title="Please enter your Password"
+                                           value="#{loginAccount.pwd}">
+                            </h:inputSecret>
+                        </p>
+                    </div>
+                    <div>
+                        <h:commandButton id="login" value="Login" action="#{loginAccount.checkLogin()}"/>
+                    </div>
+                </div>
+            </h:form>
+    </h:body>
+</html>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">   
+
+    <h:head>
+        <title>Create Account</title>
+        <meta http-equiv="pragma" content="no-cache" />
+        <link href="Style/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+
+    <h:body>
+        <h:form>
+            <div class="container-fluid" align="center">
+                <div>
+                    <h3>Create a New Account</h3>
+                </div>
+                <div>
+                    <p>Please enter your Social Security Number:*
+                        <h:inputText id="ssn" 
+                                     required="true" 
+                                     requiredMessage="**** SSN cannot be empty"
+                                     title="Please enter your Social Security Number"
+                                     value="#{createNewAccount.ssn}"
+                                     validatorMessage="SSN must be atleast 4 digits">
+                            <f:validateLength minimum="4"/>
+                        </h:inputText>
+                    </p>
+                </div>
+                <div>
+                    <p>Please enter your Full Name:*
+                        <h:inputText id="fullname" 
+                                     required="true" 
+                                     requiredMessage="**** Name cannot be empty"
+                                     title="Please enter your Full Name"
+                                     value="#{createNewAccount.fullName}">
+                        </h:inputText>
+                    </p>
+                </div>
+                <div>
+                    <p>Please enter a Login ID:*
+                        <h:inputText id="loginID" 
+                                     required="true" 
+                                     requiredMessage="**** Login ID cannot be empty"
+                                     title="Please enter your Login ID"
+                                     value="#{createNewAccount.loginID}"
+                                     validatorMessage="LoginID must be atleast 7 characters">
+                            <f:validateLength minimum="7"/>
+                        </h:inputText>
+                    </p>
+                </div>
+                <div>
+                    <p>Please enter the Password:*
+                        <h:inputSecret id="password" 
+                                       required="true" 
+                                       requiredMessage="**** Password cannot be empty"
+                                       title="Please enter your Password"
+                                       value="#{createNewAccount.pwd}"
+                                       validatorMessage="Password must be atleast 7 characters and maximum 10 characters">
+                            <f:validateLength minimum="7" maximum="10"/>
+                        </h:inputSecret>
+                    </p>
+                </div>
+                <div>
+                    <p>Do you wish to Deposit money now?
+                        <p>If Yes, enter the Amount. Else, leave blank. </p>
+                        <h:inputText id="amount"
+                                     title="Enter the Amount"
+                                     value="#{createNewAccount.amount}">
+                        </h:inputText>
+                    </p>
+                </div>
+                <div>
+                    <p>#### Answer the Security questions in case you forget the password* ####</p>
+                    <div>
+                        <h:selectOneMenu value="#{createNewAccount.questionOne}">
+                            <f:selectItems value="#{createNewAccount.fetchQuestions()}"/>
+                        </h:selectOneMenu>
+                        <h:inputText id="answerOne"
+                                     required="true"
+                                     requiredMessage="**** Answer One cannot be empty"
+                                     title="Answer One"
+                                     value="#{createNewAccount.answerOne}">
+                        </h:inputText>
+                    </div>
+                    <div>
+                        <h:selectOneMenu value="#{createNewAccount.questionTwo}">
+                            <f:selectItems value="#{createNewAccount.fetchQuestions()}"/>
+                        </h:selectOneMenu>
+                        <h:inputText id="answerTwo"
+                                     required="true"
+                                     requiredMessage="**** Answer Two cannot be empty"
+                                     title="Answer Two"
+                                     value="#{createNewAccount.answerTwo}">
+                        </h:inputText>
+                    </div>
+                    <div>
+                        <h:selectOneMenu value="#{createNewAccount.questionThree}">
+                            <f:selectItems value="#{createNewAccount.fetchQuestions()}"/>
+                        </h:selectOneMenu>
+                        <h:inputText id="answerThree"
+                                     required="true"
+                                     requiredMessage="**** Answer Three cannot be empty"
+                                     title="Answer Three"
+                                     value="#{createNewAccount.answerThree}">
+                        </h:inputText>
+                    </div>
+                    <div>&nbsp;</div>
+                    <div>
+                        <h:commandButton id="submit" value="submit" action="confirmation1.xhtml"/>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+    </h:body>
+</html>

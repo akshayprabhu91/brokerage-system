@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Success</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="Style/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <div align="center" class="container-fluid">
+                <div>
+                    <h2>
+                        Trade Successful!
+                    </h2>
+                </div>
+                <div>
+                    #{loginAccount.message}
+                </div>
+                <div>
+                    &nbsp;
+                </div>
+                <div>
+                    <h:commandButton id="return" value="Return" action="welcome.xhtml"></h:commandButton>
+                </div>
+            </div>
+        </h:form>
+    </h:body>
+</html>

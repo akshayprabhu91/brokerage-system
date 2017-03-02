@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Home Page</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="Style/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <div align="center" class="container-fluid">
+                <div>
+                    <h3>
+                        Hello #{loginAccount.fullName},
+                    </h3>
+                </div>
+                <div>
+                    Your Current Balance is $#{loginAccount.balance}.
+                </div>
+                <div>
+                    <h3>
+                        Please select an Option:
+                    </h3>
+                </div>
+                <div>
+                    <h:commandButton id="trade" value="TRADE" action="trade.xhtml" style="width: 300px"></h:commandButton>
+                </div>
+                <div>
+                    <h:commandButton id="displayOrders" value="DISPLAY ORDERS" action="displayOrders.xhtml" style="width: 300px"></h:commandButton>
+                </div>
+                <div>
+                    <h:commandButton id="logOut" value="LOG OUT" action="#{loginAccount.logOut()}" style="width: 300px"></h:commandButton>
+                </div>
+            </div>
+        </h:form>
+    </h:body>
+</html>
